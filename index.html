@@ -5,12 +5,12 @@
 [hidden]{display:none!important}
 /* Mobile-first cinematic chapter and illustrated result redesign */
 #app{width:100%;max-width:540px}
-.start{background:linear-gradient(180deg,#18202a15 0%,#17232b50 30%,#101a25f0 88%),url('assets/cinematic_01.jpg') center/cover;padding:26px 25px max(34px,env(safe-area-inset-bottom))}
+.start{background:linear-gradient(180deg,#18202a15 0%,#17232b50 30%,#101a25f0 88%),url('assets/cinematic_01.jpg?v=3d-final-20261012') center/cover;padding:26px 25px max(34px,env(safe-area-inset-bottom))}
 .start .eyebrow{font-family:Georgia,serif;font-size:clamp(24px,7vw,36px);line-height:1.05;font-style:italic;font-weight:900;letter-spacing:.6px;color:#ffead0;text-shadow:0 3px 15px #000d}
 .start h1{font-size:clamp(27px,7vw,37px);line-height:1.3}
 .start-content{padding:14px 2px 0}
 .start .primary{background:#2e2825;color:#fff3dc;border:1px solid #fff9}
-.end{background:linear-gradient(#fff8eefa,#f2dfc8f5),url('assets/cinematic_01.jpg') center/cover;color:#342b26}
+.end{background:linear-gradient(#fff8eefa,#f2dfc8f5),url('assets/cinematic_01.jpg?v=3d-final-20261012') center/cover;color:#342b26}
 .end h1,.end .result-name{color:#4d3829}.end p{color:#5a4a3e}
 .end .eyebrow,.end .result-title{color:#8d653d}
 .end .result-card{background:#fffbf4;color:#3b312b;border:1px solid #d9b78e;padding:15px;box-shadow:0 10px 32px #55402729}
@@ -24,7 +24,7 @@
 @media(min-width:650px){#app{width:540px}}
 
 /* Final art direction: cinematic 3D animation, portrait-first on phones */
-.start{background-image:linear-gradient(180deg,#1623330b 0%,#17232a34 34%,#0a1421ed 88%),url('assets/cinematic_01.jpg')!important;background-position:center!important;background-size:cover!important}
+.start{background-image:linear-gradient(180deg,#1623330b 0%,#17232a34 34%,#0a1421ed 88%),url('assets/cinematic_01.jpg?v=3d-final-20261012')!important;background-position:center!important;background-size:cover!important}
 .start .eyebrow{font-size:clamp(26px,7.7vw,39px);font-weight:900;line-height:1.08;letter-spacing:1px;transform:rotate(-3deg);transform-origin:left center;text-shadow:0 3px 14px #171516}
 .start-content{position:relative;z-index:10}
 #app{width:100%;max-width:540px;min-height:100dvh}
@@ -34,6 +34,10 @@
 .result-stamp{letter-spacing:1px}
 .end .result-card p[style]{color:#8a5c32!important}
 @media(max-width:550px){.start{padding-bottom:max(35px,env(safe-area-inset-bottom))}.role-image{height:230px}}
+
+/* Final verified visual sources: never use the legacy SVG sketches */
+#start.start{background-image:linear-gradient(180deg,#16233308 0%,#17232a30 35%,#0a1421ec 89%),url('assets/cinematic_01.jpg?v=3d-final-20261012')!important;background-position:center!important;background-size:cover!important}
+#end.end{background-image:linear-gradient(180deg,#fff8e9ee,#e7d6c2f4),url('assets/cinematic_06.jpg?v=3d-final-20261012')!important;background-size:cover!important;background-position:center!important}
 </style></head><body><main id="app"><div class="backdrop" id="bg"></div><div class="light"></div><div class="portrait" id="portrait"></div><div class="shade"></div><div class="rain" id="rain"></div><div class="scene-tag" id="sceneTag"></div><div class="top" id="top" hidden><div class="time" id="clock"></div><div class="place" id="place"></div><button class="iconbtn" id="music" aria-label="開關背景音樂">♫</button><button class="iconbtn" id="restart" aria-label="重新開始">↺</button></div><div class="progress" id="progress" hidden><span id="progressBar"></span></div><div class="dialogue" id="dialogue" hidden><div class="bubble" id="bubble" role="button" tabindex="0"><div class="speaker" id="speaker"></div><div class="line" id="line"></div><div class="hint" id="hint">點擊繼續 ▾</div></div><div class="options" id="options"></div></div><div class="flash" id="flash"></div><section class="start" id="start"><div class="start-content"><div class="eyebrow">THE FIRST CHAPTER</div><h1>我的第一天，<br>從這裡開始。</h1><p>如果今天，你成為一名工程實習生……<br>從早上報到，到傍晚走出工地，<br>你會發現自己擅長什麼？</p><input id="playerName" class="namefield" maxlength="12" placeholder="你的暱稱（可以留空）" aria-label="你的暱稱"><button class="primary" id="startBtn">開始我的第一天　→</button><p class="small">九段情境 × 不同選擇 × 屬於你的職場第一天<br>點擊開始後可開啟原創配樂（預設靜音）</p></div></section><section class="end" id="end" hidden></section></main>
 <script>
 window.addEventListener("error",function(e){
@@ -47,7 +51,7 @@ window.addEventListener("error",function(e){
 </script>
 <script>
 'use strict';
-const IMG={"hr":"assets/cinematic_02.jpg","mentor":"assets/cinematic_03.jpg","safety":"assets/cinematic_04.jpg","admin":"assets/cinematic_05.jpg","quality":"assets/cinematic_04.jpg","rain":"assets/cinematic_01.jpg","cat":"assets/cinematic_02.jpg","mentor2":"assets/cinematic_03.jpg","plan":"assets/cinematic_05.jpg","sunset":"assets/cinematic_06.jpg"};
+const IMG={"hr":"assets/cinematic_02.jpg?v=3d-final-20261012","mentor":"assets/cinematic_03.jpg?v=3d-final-20261012","safety":"assets/cinematic_04.jpg?v=3d-final-20261012","admin":"assets/cinematic_05.jpg?v=3d-final-20261012","quality":"assets/cinematic_04.jpg?v=3d-final-20261012","rain":"assets/cinematic_01.jpg?v=3d-final-20261012","cat":"assets/cinematic_02.jpg?v=3d-final-20261012","mentor2":"assets/cinematic_03.jpg?v=3d-final-20261012","plan":"assets/cinematic_05.jpg?v=3d-final-20261012","sunset":"assets/cinematic_06.jpg?v=3d-final-20261012"};
 const STORIES=[
  {time:'08:00',place:'豐譽・辦公室入口',img:'hr',who:'HR 學姊｜依庭',tag:'FIRST DAY',lines:[['旁白','早上八點。你比約定時間早到了十分鐘，站在陌生的辦公室門口。'],['HR 學姊｜依庭','早安！你是今天來報到的實習生嗎？歡迎加入我們！'],['HR 學姊｜依庭','我先去準備你的資料，你可以稍微熟悉一下環境。']],question:'你還不知道接下來該去哪裡，會先怎麼做？',choices:[['G','直接找一位同仁問：「不好意思，我可以先做什麼？」'],['R','拿出報到通知，確認流程和集合地點。'],['S','先觀察大家的動線，找出負責接待的人。'],['H','仔細看看周圍的指示，確認自己沒有漏掉資訊。']],replies:{G:'依庭笑了：「很棒！有問題直接問，真的比站著緊張有效。」',R:'依庭點點頭：「你很會先整理資訊耶，等等我也會給你流程表。」',S:'依庭說：「觀察力很好！你已經找到我們的報到區了。」',H:'依庭笑著說：「你連小細節都注意到了，真可靠。」'}},
  {time:'09:15',place:'工程辦公區・圖面桌',img:'mentor',who:'施工學長｜子軒',tag:'BLUEPRINTS',lines:[['旁白','辦公桌上攤開一疊施工圖，螢幕裡還有你看不懂的工程模型。'],['施工學長｜子軒','欸，新同學！剛好，幫我整理一下這批工程資料好嗎？'],['施工學長｜子軒','不用緊張，沒有人第一天就看得懂全部。']],question:'面對一疊看不懂的工程資料，你的第一步是？',choices:[['G','先動手翻翻看，找出自己可以處理的部分。'],['R','問清楚整理這些資料的目的與最後要交什麼。'],['S','先確認哪些資料最重要、弄錯可能影響什麼。'],['H','確認命名、排序和版本，避免整理完還要重做。']],replies:{G:'子軒：「很可以！邊做邊學，現場就是這樣累積經驗的。」',R:'子軒：「問得好，知道為什麼要做，才知道怎麼做。」',S:'子軒：「你想得很周全，圖面版本錯了真的會很麻煩。」',H:'子軒：「太好了，工程資料最怕版本混在一起。」'}},
