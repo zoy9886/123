@@ -45,6 +45,10 @@
 #app .options{max-height:min(40dvh,300px);overscroll-behavior:contain}
 #app .bubble{min-height:unset}
 @media(max-height:700px){#app .bubble{padding:24px 15px 11px}#app .line{font-size:14px;line-height:1.55;min-height:0}#app .options{max-height:38dvh}#app .choice{padding:9px 11px}}
+/* High-resolution art: keep the full scene crisp without duplicate image loading */
+#app .backdrop{background-repeat:no-repeat!important}
+#app .result-hero img{image-rendering:auto}
+#app .start,#app .end{background-repeat:no-repeat!important}
 /* Character unlock cards: real transparent PNG layers, props and live text */
 .end .result-hero{position:relative;min-height:300px;border-radius:18px;overflow:hidden;isolation:isolate;margin:0 0 16px;background:radial-gradient(ellipse at 50% 35%,#fffdf3a8,transparent 60%),linear-gradient(145deg,var(--role-light),var(--role-dark));border:1px solid #ffffffb0}
 .result-hero:before{content:"";position:absolute;inset:14px;border:1px solid #ffffff6e;border-radius:12px;pointer-events:none}
@@ -89,7 +93,7 @@ const HOUSES={G:{name:'施工組',title:'現場行動派',lead:'你擅長把「�
 const ROLE_ART={G:{slogan:'讓想法落地，讓改變發生。',tools:['🏗️','📻','📏']},R:{slogan:'看見全局，才能走好每一步。',tools:['📐','🗺️','💻']},S:{slogan:'看見風險，守護每一次平安。',tools:['🦺','⚠️','📋']},H:{slogan:'每一個細節，都是品質的承諾。',tools:['📏','🔍','📋']}};
 let idx=0,step=0,mode='start',score={G:0,R:0,S:0,H:0},cat=false,chosen=[],player='你',typing=false,full='',typingTimer=null,audio=null,musicOn=false,musicTimer=null;
 const $=id=>document.getElementById(id);
-function scene(){let s=STORIES[idx];$('bg').style.backgroundImage=`url("${IMG[s.img]}")`;$('portrait').style.backgroundImage=`url("${IMG[s.img]}")`;$('portrait').className='portrait'+(s.img==='cat'?' cat':'')+(s.img==='sunset'?' sunset-portrait':'');$('clock').textContent=s.time;$('place').textContent=s.place;$('sceneTag').textContent=s.tag;$('rain').classList.toggle('active',s.img==='rain');$('progressBar').style.width=`${(idx/9)*100}%`;step=0;mode='dialog';$('options').innerHTML='';nextLine();}
+function scene(){let s=STORIES[idx];$('bg').style.backgroundImage=`url("${IMG[s.img]}")`;$('clock').textContent=s.time;$('place').textContent=s.place;$('sceneTag').textContent=s.tag;$('rain').classList.toggle('active',s.img==='rain');$('progressBar').style.width=`${(idx/9)*100}%`;step=0;mode='dialog';$('options').innerHTML='';nextLine();}
 function typeText(txt){clearInterval(typingTimer);full=txt;typing=true;$('line').textContent='';$('hint').textContent='點擊顯示完整對話 ▾';$('portrait').classList.add('talking');let i=0;typingTimer=setInterval(()=>{i=Math.min(txt.length,i+2);$('line').textContent=txt.slice(0,i);if(i>=txt.length)finishTyping();},24);}
 function finishTyping(){clearInterval(typingTimer);typing=false;$('line').textContent=full;$('hint').textContent=mode==='reply'?'點擊繼續 ▾':'點擊繼續 ▾';$('portrait').classList.remove('talking');}
 function nextLine(){let s=STORIES[idx];if(step<s.lines.length){const [speaker,line]=s.lines[step++];$('speaker').textContent=speaker;typeText(line);}else showQuestion();}
