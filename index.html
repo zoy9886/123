@@ -5,12 +5,12 @@
 [hidden]{display:none!important}
 /* Mobile-first cinematic chapter and illustrated result redesign */
 #app{width:100%;max-width:540px}
-.start{background:linear-gradient(180deg,#18202a15 0%,#17232b50 30%,#101a25f0 88%),url('assets/cinematic_01.jpg?v=3d-final-20261012') center/cover;padding:26px 25px max(34px,env(safe-area-inset-bottom))}
+.start{background:linear-gradient(180deg,#18202a15 0%,#17232b50 30%,#101a25f0 88%),url('assets/chapter_cover.jpg') center/cover;padding:26px 25px max(34px,env(safe-area-inset-bottom))}
 .start .eyebrow{font-family:Georgia,serif;font-size:clamp(24px,7vw,36px);line-height:1.05;font-style:italic;font-weight:900;letter-spacing:.6px;color:#ffead0;text-shadow:0 3px 15px #000d}
 .start h1{font-size:clamp(27px,7vw,37px);line-height:1.3}
 .start-content{padding:14px 2px 0}
 .start .primary{background:#2e2825;color:#fff3dc;border:1px solid #fff9}
-.end{background:linear-gradient(#fff8eefa,#f2dfc8f5),url('assets/cinematic_01.jpg?v=3d-final-20261012') center/cover;color:#342b26}
+.end{background:linear-gradient(#fff8eefa,#f2dfc8f5),url('assets/chapter_cover.jpg') center/cover;color:#342b26}
 .end h1,.end .result-name{color:#4d3829}.end p{color:#5a4a3e}
 .end .eyebrow,.end .result-title{color:#8d653d}
 .end .result-card{background:#fffbf4;color:#3b312b;border:1px solid #d9b78e;padding:15px;box-shadow:0 10px 32px #55402729}
@@ -24,7 +24,7 @@
 @media(min-width:650px){#app{width:540px}}
 
 /* Final art direction: cinematic 3D animation, portrait-first on phones */
-.start{background-image:linear-gradient(180deg,#1623330b 0%,#17232a34 34%,#0a1421ed 88%),url('assets/cinematic_01.jpg?v=3d-final-20261012')!important;background-position:center!important;background-size:cover!important}
+.start{background-image:linear-gradient(180deg,#1623330b 0%,#17232a34 34%,#0a1421ed 88%),url('assets/chapter_cover.jpg')!important;background-position:center!important;background-size:cover!important}
 .start .eyebrow{font-size:clamp(26px,7.7vw,39px);font-weight:900;line-height:1.08;letter-spacing:1px;transform:rotate(-3deg);transform-origin:left center;text-shadow:0 3px 14px #171516}
 .start-content{position:relative;z-index:10}
 #app{width:100%;max-width:540px;min-height:100dvh}
@@ -35,17 +35,11 @@
 .end .result-card p[style]{color:#8a5c32!important}
 @media(max-width:550px){.start{padding-bottom:max(35px,env(safe-area-inset-bottom))}.role-image{height:230px}}
 
-/* Final verified visual sources: never use the legacy SVG sketches */
-#start.start{background-image:linear-gradient(180deg,#16233308 0%,#17232a30 35%,#0a1421ec 89%),url('assets/cinematic_01.jpg?v=3d-final-20261012')!important;background-position:center!important;background-size:cover!important}
-#end.end{background-image:linear-gradient(180deg,#fff8e9ee,#e7d6c2f4),url('assets/cinematic_06.jpg?v=3d-final-20261012')!important;background-size:cover!important;background-position:center!important}
-
-/* Mobile scene framing: keep faces above the dialogue and preserve sharp sunset art */
-#app .portrait:not(.sunset-portrait){width:94%;left:3%;height:63%;top:1%;background-size:contain;background-repeat:no-repeat;background-position:center top;mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,transparent 100%)}
-#app .backdrop{filter:blur(5px) brightness(.78);transform:scale(1.025)}
-#app:has(.sunset-portrait) .backdrop{filter:none!important;transform:none!important;background-position:center center!important}
-#app:has(.sunset-portrait) .shade{background:linear-gradient(180deg,#10172208 0%,#17202a00 35%,#111b28a8 73%,#101b27f2 100%)}
-#app .portrait.sunset-portrait{display:none!important}
-@media(max-height:680px){#app .portrait:not(.sunset-portrait){top:0;height:56%}}
+/* Nine distinct story images. Keep faces visible and the sunset sharp. */
+#app .backdrop{filter:none!important;transform:none!important;background-size:cover!important;background-position:center 35%!important}
+#app .portrait{display:none!important}
+#app .shade{background:linear-gradient(180deg,#08111b05 0%,#0b182200 40%,#101b2699 67%,#0c1625f2 100%)}
+#app .start{background-image:linear-gradient(180deg,#111a2410 0%,#121b2850 38%,#0c1423e8 88%),url('assets/chapter_cover.jpg')!important}
 </style></head><body><main id="app"><div class="backdrop" id="bg"></div><div class="light"></div><div class="portrait" id="portrait"></div><div class="shade"></div><div class="rain" id="rain"></div><div class="scene-tag" id="sceneTag"></div><div class="top" id="top" hidden><div class="time" id="clock"></div><div class="place" id="place"></div><button class="iconbtn" id="music" aria-label="開關背景音樂">♫</button><button class="iconbtn" id="restart" aria-label="重新開始">↺</button></div><div class="progress" id="progress" hidden><span id="progressBar"></span></div><div class="dialogue" id="dialogue" hidden><div class="bubble" id="bubble" role="button" tabindex="0"><div class="speaker" id="speaker"></div><div class="line" id="line"></div><div class="hint" id="hint">點擊繼續 ▾</div></div><div class="options" id="options"></div></div><div class="flash" id="flash"></div><section class="start" id="start"><div class="start-content"><div class="eyebrow">THE FIRST CHAPTER</div><h1>我的第一天，<br>從這裡開始。</h1><p>如果今天，你成為一名工程實習生……<br>從早上報到，到傍晚走出工地，<br>你會發現自己擅長什麼？</p><input id="playerName" class="namefield" maxlength="12" placeholder="你的暱稱（可以留空）" aria-label="你的暱稱"><button class="primary" id="startBtn">開始我的第一天　→</button><p class="small">九段情境 × 不同選擇 × 屬於你的職場第一天<br>點擊開始後可開啟原創配樂（預設靜音）</p></div></section><section class="end" id="end" hidden></section></main>
 <script>
 window.addEventListener("error",function(e){
@@ -59,12 +53,12 @@ window.addEventListener("error",function(e){
 </script>
 <script>
 'use strict';
-const IMG={"hr":"assets/cinematic_02.jpg?v=3d-final-20261012","mentor":"assets/cinematic_03.jpg?v=3d-final-20261012","safety":"assets/cinematic_04.jpg?v=3d-final-20261012","admin":"assets/cinematic_05.jpg?v=3d-final-20261012","quality":"assets/cinematic_04.jpg?v=3d-final-20261012","rain":"assets/cinematic_01.jpg?v=3d-final-20261012","cat":"assets/scene_08.jpg?v=catfix-20261012","mentor2":"assets/cinematic_03.jpg?v=3d-final-20261012","plan":"assets/cinematic_05.jpg?v=3d-final-20261012","sunset":"assets/cinematic_06.jpg?v=3d-final-20261012"};
+const IMG={"hr":"assets/chapter_01.jpg","mentor":"assets/chapter_02.jpg","admin":"assets/chapter_03.jpg","lunch":"assets/chapter_04.jpg","cat":"assets/chapter_05.jpg","safety":"assets/chapter_06.jpg","quality":"assets/chapter_07.jpg","rain":"assets/chapter_08.jpg","sunset":"assets/chapter_09.jpg"};
 const STORIES=[
  {time:'08:00',place:'豐譽・辦公室入口',img:'hr',who:'HR 學姊｜依庭',tag:'FIRST DAY',lines:[['旁白','早上八點。你比約定時間早到了十分鐘，站在陌生的辦公室門口。'],['HR 學姊｜依庭','早安！你是今天來報到的實習生嗎？歡迎加入我們！'],['HR 學姊｜依庭','我先去準備你的資料，你可以稍微熟悉一下環境。']],question:'你還不知道接下來該去哪裡，會先怎麼做？',choices:[['G','直接找一位同仁問：「不好意思，我可以先做什麼？」'],['R','拿出報到通知，確認流程和集合地點。'],['S','先觀察大家的動線，找出負責接待的人。'],['H','仔細看看周圍的指示，確認自己沒有漏掉資訊。']],replies:{G:'依庭笑了：「很棒！有問題直接問，真的比站著緊張有效。」',R:'依庭點點頭：「你很會先整理資訊耶，等等我也會給你流程表。」',S:'依庭說：「觀察力很好！你已經找到我們的報到區了。」',H:'依庭笑著說：「你連小細節都注意到了，真可靠。」'}},
  {time:'09:15',place:'工程辦公區・圖面桌',img:'mentor',who:'施工學長｜子軒',tag:'BLUEPRINTS',lines:[['旁白','辦公桌上攤開一疊施工圖，螢幕裡還有你看不懂的工程模型。'],['施工學長｜子軒','欸，新同學！剛好，幫我整理一下這批工程資料好嗎？'],['施工學長｜子軒','不用緊張，沒有人第一天就看得懂全部。']],question:'面對一疊看不懂的工程資料，你的第一步是？',choices:[['G','先動手翻翻看，找出自己可以處理的部分。'],['R','問清楚整理這些資料的目的與最後要交什麼。'],['S','先確認哪些資料最重要、弄錯可能影響什麼。'],['H','確認命名、排序和版本，避免整理完還要重做。']],replies:{G:'子軒：「很可以！邊做邊學，現場就是這樣累積經驗的。」',R:'子軒：「問得好，知道為什麼要做，才知道怎麼做。」',S:'子軒：「你想得很周全，圖面版本錯了真的會很麻煩。」',H:'子軒：「太好了，工程資料最怕版本混在一起。」'}},
  {time:'10:30',place:'茶水間',img:'admin',who:'行政同仁｜宥庭',tag:'COFFEE BREAK',lines:[['行政同仁｜宥庭','救命！大家要一起訂飲料，但每個人的要求都不一樣。'],['行政同仁｜宥庭','有人少冰、有人無糖，還有人說「跟上次一樣」……你有什麼好方法？']],question:'面對一團混亂的飲料訂單，你會？',choices:[['H','先確認每個人的品項和甜度冰塊，避免訂錯。'],['G','直接推薦一家大家都沒喝過、評價很好的店。'],['S','先問清楚有沒有不能喝的成分或特殊需求。'],['R','做一張簡單的表單，讓每個人自己填清楚。']],replies:{H:'宥庭：「太感動了，終於有人懂訂錯飲料的痛！」',G:'宥庭：「哈哈，原來你是敢帶大家嘗鮮的那個！」',S:'宥庭：「你真的有注意到每個人的需求耶。」',R:'宥庭：「這招很聰明！以後訂飲料都交給這張表了。」'}},
- {time:'12:30',place:'午休・員工休息區',img:'admin',who:'行政同仁｜宥庭',tag:'LUNCH TALK',lines:[['旁白','午餐時間，大家終於暫時放下手邊的工作。'],['行政同仁｜宥庭','我問你喔，如果先不考慮薪水，你會想做什麼樣的工作？'],['行政同仁｜宥庭','不要想標準答案，說你真正喜歡的就好。']],question:'你最期待工作帶給你哪種感覺？',choices:[['G','遇到挑戰，親手把原本做不到的事完成。'],['R','每天都能學到新東西，解開複雜的問題。'],['S','提早發現問題，讓大家可以安心把事情做好。'],['H','把每個細節顧好，讓成果真的值得信賴。']],replies:{G:'宥庭：「你應該很適合那種每天都有新挑戰的現場。」',R:'宥庭：「懂！把一件複雜的事想通，真的很有成就感。」',S:'宥庭：「讓事情順利進行，也是很厲害的能力。」',H:'宥庭：「我喜歡這個答案，可靠真的很難得。」'}},
+ {time:'12:30',place:'午休・員工休息區',img:'lunch',who:'行政同仁｜宥庭',tag:'LUNCH TALK',lines:[['旁白','午餐時間，大家終於暫時放下手邊的工作。'],['行政同仁｜宥庭','我問你喔，如果先不考慮薪水，你會想做什麼樣的工作？'],['行政同仁｜宥庭','不要想標準答案，說你真正喜歡的就好。']],question:'你最期待工作帶給你哪種感覺？',choices:[['G','遇到挑戰，親手把原本做不到的事完成。'],['R','每天都能學到新東西，解開複雜的問題。'],['S','提早發現問題，讓大家可以安心把事情做好。'],['H','把每個細節顧好，讓成果真的值得信賴。']],replies:{G:'宥庭：「你應該很適合那種每天都有新挑戰的現場。」',R:'宥庭：「懂！把一件複雜的事想通，真的很有成就感。」',S:'宥庭：「讓事情順利進行，也是很厲害的能力。」',H:'宥庭：「我喜歡這個答案，可靠真的很難得。」'}},
  {time:'13:15',place:'工地入口・圍籬旁',img:'cat',who:'工地橘貓｜？？？',tag:'A LITTLE SURPRISE',lines:[['旁白','準備進工地時，一團橘色的影子突然出現在圍籬旁。'],['工地橘貓｜？？？','喵。'],['旁白','牠一臉理所當然地看著你，彷彿自己才是今天的工地主任。']],question:'面對這位神秘的「監工」，你會？',choices:[['CAT','先確認牠待的位置是否安全，再找同仁協助。'],['CAT','拿起手機拍一張照片，紀念第一天。'],['CAT','好奇地問學長：「牠每天都會來嗎？」'],['CAT','在心裡幫牠取名：「橘色總監」。']],replies:{CAT:'橘貓瞇起眼睛，彷彿對你的決定表示批准。喵。'}},
  {time:'14:00',place:'工程現場・施工區',img:'safety',who:'職安學姊｜佳穎',tag:'ON SITE',lines:[['旁白','戴上安全帽、穿好反光背心，你第一次走進真正的工程現場。'],['職安學姊｜佳穎','這裡跟你想像的一樣嗎？每個人看現場，注意到的事情都不一樣。'],['職安學姊｜佳穎','如果讓你先觀察十分鐘，你會最想弄懂什麼？']],question:'進入工地後，你最先被什麼吸引？',choices:[['G','眼前的結構到底是怎麼一步步蓋起來的。'],['R','圖面、進度和不同工種之間怎麼互相配合。'],['S','現場哪些地方可能有風險、要怎麼預防。'],['H','已經完成的部分，怎麼確認有達到要求。']],replies:{G:'佳穎：「那等等可以請子軒帶你看看施工順序！」',R:'佳穎：「工程就像大型拼圖，每一塊都要接得起來。」',S:'佳穎：「你很有職安的直覺，先看到風險很重要。」',H:'佳穎：「完成不代表合格，這個觀察很專業喔。」'}},
  {time:'15:10',place:'工程現場・圖面查核',img:'quality',who:'品管學姊｜筱妤',tag:'SOMETHING CHANGED',lines:[['品管學姊｜筱妤','等一下，這裡的施工情況好像跟原本規劃的不太一樣。'],['品管學姊｜筱妤','先別急著下結論，我們一起想想接下來該怎麼確認。']],question:'發現現場和原本計畫不同，你會先？',choices:[['G','到現場把狀況看清楚，找出可以怎麼處理。'],['R','把圖面和現場資料放在一起，比對差異。'],['S','確認這個變動會不會影響安全或後續作業。'],['H','檢查施工要求和驗收標準，確認差異是否可接受。']],replies:{G:'筱妤：「先把現況看清楚，才能討論可行做法。」',R:'筱妤：「很好，差異要有依據，不能只靠印象。」',S:'筱妤：「沒錯，變更前要先想它會影響到誰。」',H:'筱妤：「這就是品質管理的重要觀念，標準不能憑感覺。」'}},
