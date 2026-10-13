@@ -78,6 +78,16 @@
 #app .result-extra .stat{color:#4e473c}
 #app .result-extra .bar{background:#d9cfc0}
 #app .result-extra .bar i{background:#719f84}
+
+/* Cover layout: preserve the title baked into the official artwork and keep the boy's face unobstructed. */
+#app .start{align-items:flex-end!important;padding:0 26px max(24px,env(safe-area-inset-bottom))!important;background-image:linear-gradient(180deg,transparent 0%,transparent 62%,#10182422 71%,#0b1420db 100%),url("assets/chapter_cover.png?v=cover-face-clear-20261013")!important;background-position:center center!important;background-size:cover!important}
+#app .start .eyebrow,#app .start h1{display:none!important}
+#app .start-content{padding:0!important;width:100%;text-shadow:0 2px 9px #000b}
+#app .start-content>p:not(.small){font-size:12px!important;line-height:1.55!important;margin:0 0 7px!important;color:#fff!important}
+#app .start .namefield{margin-top:3px!important;padding:11px 14px!important}
+#app .start .primary{margin-top:10px!important;padding:13px 16px!important}
+#app .start .small{font-size:11px!important;line-height:1.5!important;margin:11px 0 0!important}
+@media(max-height:740px){#app .start-content>p:not(.small){display:none!important}#app .start .small{font-size:10px!important}}
 </style></head><body><main id="app"><div class="backdrop" id="bg"></div><div class="light"></div><div class="portrait" id="portrait"></div><div class="shade"></div><div class="rain" id="rain"></div><div class="scene-tag" id="sceneTag"></div><div class="top" id="top" hidden><div class="time" id="clock"></div><div class="place" id="place"></div><button class="iconbtn" id="music" aria-label="開關背景音樂">♫</button><button class="iconbtn" id="restart" aria-label="重新開始">↺</button></div><div class="progress" id="progress" hidden><span id="progressBar"></span></div><div class="dialogue" id="dialogue" hidden><div class="bubble" id="bubble" role="button" tabindex="0"><div class="speaker" id="speaker"></div><div class="line" id="line"></div><div class="hint" id="hint">點擊繼續 ▾</div></div><div class="options" id="options"></div></div><div class="flash" id="flash"></div><section class="start" id="start"><div class="start-content"><div class="eyebrow">THE FIRST CHAPTER</div><h1>我的第一天，<br>從這裡開始。</h1><p>如果今天，你成為一名工程實習生……<br>從早上報到，到傍晚走出工地，<br>你會發現自己擅長什麼？</p><input id="playerName" class="namefield" maxlength="12" placeholder="你的暱稱（可以留空）" aria-label="你的暱稱"><button class="primary" id="startBtn">開始我的第一天　→</button><p class="small">九段情境 × 不同選擇 × 屬於你的職場第一天<br>點擊開始後可開啟原創配樂（預設靜音）</p></div></section><section class="end" id="end" hidden></section></main>
 <script>
 window.addEventListener("error",function(e){
